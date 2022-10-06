@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import {
-  HashRouter, Routes, Route
+  BrowserRouter, Routes, Route
 } from "react-router-dom";
 
 export default class App extends Component {
 
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter basename="NewsApp">
         <Navbar /> 
         <Routes>
           <Route exact path="/" element={<News key="general" pageSize={6} country={"in"} category="general" />} />
@@ -21,7 +21,7 @@ export default class App extends Component {
           <Route exact path="/Sports" element={<News key="Sports" pageSize={6} country={"in"} category="Sports" />} />
           <Route exact path="/Technology" element={<News key="Technology" pageSize={6} country={"in"} category="Technology" />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }
